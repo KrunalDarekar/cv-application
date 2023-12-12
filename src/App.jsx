@@ -1,33 +1,24 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import PersonalDetails from './components/PersonalDetails'
+import EducationDetails from './components/EducationDetails'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [personalData,setPersonalData] = useState({fullName: "", email: "", phone: "", address: ""})
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='input-fields'>
+        <PersonalDetails toSetData={setPersonalData} data={personalData}/>
+        <EducationDetails/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className='output'>
+        <div className='full-name'>
+          {personalData.fullName}
+          {personalData.email}
+          {personalData.phone}
+          {personalData.address}
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
