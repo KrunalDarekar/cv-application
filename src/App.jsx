@@ -21,7 +21,7 @@ function App() {
         </div>
         <div className="education-opt">
           {educationalData.map(e => {
-            <div key={e.id}>{e.degree} from {e.school}</div>
+            return <div key={e.id}>{e.degree} from {e.school}</div>
           })}
         </div>
       </div>

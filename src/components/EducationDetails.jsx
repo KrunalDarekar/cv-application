@@ -15,12 +15,17 @@ function EducationDetails({toSetData, data}) {
 
     const handleSaveClick = (e) => {
         e.preventDefault()
-        const newData = data;
+        const newData = [...data]
         const school = document.querySelector(".educational-details > form > #school").value
         const degree = document.querySelector(".educational-details > form > #degree").value
         const startDate = document.querySelector(".educational-details > form > #start-date").value
         const endDate = document.querySelector(".educational-details > form > #end-date").value
         const location = document.querySelector(".educational-details > form > #location").value
+        console.log(school)
+        console.log(degree)
+        console.log(startDate)
+        console.log(endDate)
+        console.log(location)
         newData.push({
             school: `${school}`,
             degree: `${degree}`,
@@ -47,7 +52,7 @@ function EducationDetails({toSetData, data}) {
                     <h2>Education</h2>
                     <div className="educational-list">
                         {data.map(element => {
-                            <div key={element.id}>{element.school}</div>
+                            return <div key={element.id}>{element.school}</div>
                         })}
                     </div>
                     <button onClick={handleAddClick}>Add Education</button>
